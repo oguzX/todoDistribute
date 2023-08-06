@@ -1,0 +1,47 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12">
+                    <h5 class="card-title">{{ developer.title }}</h5>
+                </div>
+                {% for key, week in weeks %}
+                    <div class="col-3 mt-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ key }}. Week</h5>
+                                <div class="row">
+                                    <div class="col-12 bg-light">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">
+                                                <b>Tasks</b>
+                                                {% for task in week %}
+                                                <ul>
+                                                    <li>
+                                                        {{ task.title }}
+                                                        <ul class="list-group">
+                                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                Task Level
+                                                                <span class="badge badge-primary bg-info badge-pill">{{ task.level }}</span>
+                                                            </li>
+                                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                Task Estimated Days
+                                                                <span class="badge badge-primary bg-info badge-pill">{{ task.estimateDays }}</span>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                                {% endfor %}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                {% for developer in developers %}
+                    <div class="col-3 mt-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ developer.title }}</h5>
+                                <div class="row">
+                                    <div class="col-12 bg-light">
+                                        <ul class="list-group">
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                Potential Weekly Point:
+                                                <span class="badge bg-success badge-pill"><b>{{ developer.weeklyCapacity }}</b></span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                Current Weekly Point:
+                                                <span class="badge bg-success badge-pill"><b>{{ developer.weeklyCurrentCapacity }}</b></span>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <b>Tasks</b>
+                                                <ul>
+                                                    {% for task in developer.tasks %}
+                                                        <li>
+                                                            {{ task.title }} -- {{ task.createdAt | date('d/m/Y') }}
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

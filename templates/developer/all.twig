@@ -1,0 +1,34 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                {% for developer in developers %}
+                    <div class="col-3 mt-3">
+                        <div class="card">
+                            <a href="{{ path('developer_assignments', {'id': developer.id}) }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ developer.title }}</h5>
+                                <div class="row">
+                                    <div class="col-12 bg-light">
+                                        <ul class="list-group">
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                Potential Weekly Point:
+                                                <span class="badge bg-success badge-pill"><b>{{ developer.weeklyCapacity }}</b></span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                Current Weekly Point:
+                                                <span class="badge bg-success badge-pill"><b>{{ developer.weeklyCurrentCapacity }}</b></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
