@@ -25,7 +25,7 @@ class TaskFetcherCommand extends Command
 
     protected function configure()
     {
-        $this->setName('task:fetch')
+        $this->setName('task:fetch:dispatch')
         ->setDescription('This Command is used to distribute tasks from Providers to developers');
     }
 
