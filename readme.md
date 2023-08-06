@@ -1,5 +1,9 @@
 # Todo Dispatcher
 
+I used  ROUND-ROBİN algorithm for dispatch
+
+> **Real Estimate Time** = *Level* x *Estimate Time*
+
 What we should do to get started
 
     composer install
